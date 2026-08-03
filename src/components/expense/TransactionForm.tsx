@@ -95,7 +95,7 @@ export function TransactionForm({ open, onOpenChange, editing, onSubmit }: Trans
       category: values.category,
       date: values.date,
       type: values.type,
-      notes: values.notes.trim() || undefined,
+      notes: values.notes.trim(),
       createdAt: editing?.createdAt ?? Date.now(),
     });
     onOpenChange(false);

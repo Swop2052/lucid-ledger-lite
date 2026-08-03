@@ -12,7 +12,7 @@ export interface Transaction {
   category: string;
   date: string; // ISO yyyy-mm-dd
   type: TxType;
-  notes?: string;
+  notes: string;
   createdAt: number;
 }
 
