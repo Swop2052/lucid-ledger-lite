@@ -68,7 +68,7 @@ export const monthKey = (date: string) => date.slice(0, 7); // yyyy-mm
 
 export const monthLabel = (key: string) => {
   const [y, m] = key.split("-").map(Number);
-  return new Date(y, (m ?? 1) - 1, 1).toLocaleString("en-US", {
+  return new Date(y ?? 2024, (m ?? 1) - 1, 1).toLocaleString("en-US", {
     month: "short",
     year: "numeric",
   });
@@ -122,7 +122,7 @@ export function monthlyExpenseSeries(items: Transaction[], count = 6) {
   for (let i = count - 1; i >= 0; i--) {
     const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-    buckets.push({ key, label: monthLabel(key).split(" ")[0], expense: 0, income: 0 });
+    buckets.push({ key, label: monthLabel(key).split(" ")[0] ?? key, expense: 0, income: 0 });
   }
 
   for (const t of items) {
