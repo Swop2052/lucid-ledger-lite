@@ -80,13 +80,15 @@ export function Charts({ transactions }: { transactions: Transaction[] }) {
           </div>
         ) : (
           <div className="mt-2 grid items-center gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="h-56">
+            <div className="h-56 min-h-56">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={byCategory}
                     dataKey="value"
                     nameKey="name"
+                    cx="50%"
+                    cy="50%"
                     innerRadius={52}
                     outerRadius={82}
                     paddingAngle={3}
